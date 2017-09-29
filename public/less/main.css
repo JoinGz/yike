@@ -605,6 +605,7 @@ img {
 }
 .container {
   padding-top: 2.75rem;
+  transition: all 0.5s 0.1s;
 }
 .header {
   width: 100%;

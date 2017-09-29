@@ -6,11 +6,16 @@
 	<title>豆瓣一刻</title>
 	<link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="public/less/main.css">
+	<style>
+		.go{
+			transform: translate(12.8125rem);
+		}
+	</style>
 </head>
 <body ng-app = "App">
 	<div class="viewport">
 		<!-- 侧边导航 -->
-		<div class="navs">
+		<div ng-class="{navs:true, go:done}">
 			<dl>
 				<dt class="login">
 					<div class="avatar">
@@ -19,12 +24,12 @@
 					<span>登录</span>
 				</dt>
 				<dd class="active">
-					<a href="./index.html" class="icon-home">
+					<a href="/today" class="icon-home">
 						<span>今日一刻</span>
 					</a>
 				</dd>
 				<dd>
-					<a href="./older.html" class="icon-file-empty">
+					<a href="/older" class="icon-file-empty">
 						<span>往期内容</span>
 					</a>
 				</dd>
@@ -54,16 +59,16 @@
 				<a href="javascript:;" class="icon-download">离线</a>
 			</div>
 		</div>
-		<div class="container">
+		<div ng-class="{container:true, go:done}">
 			<!-- 头部 -->
 			<div class="header">
-				<a href="javascript:;" class="menu icon-menu"></a>
+				<a href="javascript:;" class="menu icon-menu" ng-click="fn()"></a>
 				<h2>今日一刻</h2>
 				<a href="javascript:;" class="search icon-search"></a>
 			</div>
 			<!-- 主体 -->
 			<div class="body" ng-controller="control">
-				<div ng-view>{{txt}}</div>
+				<div ng-view></div>
 			</div>
 		</div>
 	</div>
