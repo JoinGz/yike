@@ -1,7 +1,7 @@
 var app = angular.module("App",["hehe",'ngRoute',]);
 app.run(["$rootScope",function($rootScope){
 	$rootScope.done = false;
-	$rootScope.fn=function(){
+	$rootScope.toggle=function(){
 		$rootScope.done = !$rootScope.done ;
 		var a = document.getElementsByClassName('viewport')[0].firstElementChild;
 		var a1 = a.firstElementChild;
@@ -32,8 +32,11 @@ app.run(["$rootScope",function($rootScope){
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.when("/today",{
 		templateUrl:"./views/today.html",
-		controller:"control"
+		controller:"todaycontrol"
 	}).when("/older",{
 		templateUrl:"./views/older.html",
+		controller:"oldercontrol"
+	}).otherwise({
+		redirectTo: '/today',
 	})
 }]);

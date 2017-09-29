@@ -15,7 +15,7 @@
 <body ng-app = "App">
 	<div class="viewport">
 		<!-- 侧边导航 -->
-		<div ng-class="{navs:true, go:done}">
+		<div ng-class="{navs:true, go:done}"  ng-controller="control">
 			<dl>
 				<dt class="login">
 					<div class="avatar">
@@ -24,13 +24,13 @@
 					<span>登录</span>
 				</dt>
 				<dd class="active">
-					<a href="/today" class="icon-home">
-						<span>今日一刻</span>
+					<a href="#/today" class="icon-home" >
+						<span ng-click="toggle()">今日一刻</span>
 					</a>
 				</dd>
 				<dd>
-					<a href="/older" class="icon-file-empty">
-						<span>往期内容</span>
+					<a href="#/older" class="icon-file-empty">
+						<span ng-click="toggle()">往期内容</span>
 					</a>
 				</dd>
 				<dd>
@@ -62,12 +62,12 @@
 		<div ng-class="{container:true, go:done}">
 			<!-- 头部 -->
 			<div class="header">
-				<a href="javascript:;" class="menu icon-menu" ng-click="fn()"></a>
+				<a href="javascript:;" class="menu icon-menu" ng-click="toggle()"></a>
 				<h2>今日一刻</h2>
 				<a href="javascript:;" class="search icon-search"></a>
 			</div>
 			<!-- 主体 -->
-			<div class="body" ng-controller="control">
+			<div class="body">
 				<div ng-view></div>
 			</div>
 		</div>
