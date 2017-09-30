@@ -1,18 +1,25 @@
 <div class="item">
 	<!-- 日期分类 -->
-	<div class="mark">13Aug</div>
+	<div class="mark" ng-show="show1">{{day|date:"ddMMM"}}</div>
 	<ul class="posts large">
 		<!-- 文章 -->
 		<li ng-repeat="(i,data1) in datas">
-			<span href="javascript:;" class="tag">{{data1.title}}</span>
+			<span href="javascript:;" class="tag" ng-if="data1.column.name">{{data1.column.name}}</span>
 			<div class="cont">
-				<h3>{{data1.name}}</h3>
+				<h3>{{data1.title}}</h3>
 				<div class="brief">
-					<p ng-class="{only:data1.type == 1003}" ng-if="data1.type != 1003">{{data1.content}}</p>
-					<div class="thumb" ng-if="data1.type != 1002">
-						<img ng-src="{{data1.url}}" alt="">
-					</div>
-				</div>
+						<!-- 10001 -->
+						<!-- 10002 -->
+						<p ng-class="{only: data1.display_style == 10001}" ng-if="data1.display_style != 10003">{{data1.abstract}}</p>
+						<!-- 10002 -->
+						<div class="thumb" ng-if="data1.display_style == 10002">
+							<img ng-src="{{data1.thumbs[0].small.url}}" alt="">
+						</div>
+						<!-- 10003 -->
+						<div class="gallery" ng-if="data1.display_style == 10003">
+							<img ng-src="{{data1.thumbs[0].small.url}}" alt="">
+						</div>
+					</div>	
 			</div>
 		</li>
 		<!--<li>

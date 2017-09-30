@@ -36,6 +36,18 @@ app.config(['$routeProvider', function($routeProvider) {
 	}).when("/older", {
 		templateUrl: "./views/older.html",
 		controller: "oldercontrol"
+	}).when("/category",{
+		templateUrl: "./views/category.html",
+		controller: "categorycontrol"
+	}).when("/author",{
+		templateUrl: "./views/author.html",
+		controller: "authorcontrol"
+	}).when("/favourite",{
+		templateUrl: "./views/favourite.html",
+		controller: "favouritecontrol"
+	}).when("/settings",{
+		templateUrl: "./views/settings.html",
+		controller: "settingscontrol"
 	}).otherwise({
 		redirectTo: '/today',
 	})
